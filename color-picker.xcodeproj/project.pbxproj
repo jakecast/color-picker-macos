@@ -34,7 +34,7 @@
 		230E4CBB1D2E887700BE6D15 = {
 			isa = PBXGroup;
 			children = (
-				230E4CC61D2E887700BE6D15 /* color-picker */,
+				230E4CC61D2E887700BE6D15 /* ColorPicker */,
 				230E4CC51D2E887700BE6D15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,7 +47,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		230E4CC61D2E887700BE6D15 /* color-picker */ = {
+		230E4CC61D2E887700BE6D15 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
 				230E4CCE1D2E887800BE6D15 /* Info.plist */,
@@ -55,6 +55,7 @@
 				230E4CCB1D2E887800BE6D15 /* MainMenu.xib */,
 				230E4CC71D2E887700BE6D15 /* AppDelegate.swift */,
 			);
+			name = ColorPicker;
 			path = "color-picker";
 			sourceTree = "<group>";
 		};
