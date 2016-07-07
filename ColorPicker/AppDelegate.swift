@@ -1,37 +1,36 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
-    var colorPanel: NSColorPanel {
-        return NSColorPanel.sharedColorPanel()
+internal final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+    internal var colorPanel: NSColorPanel {
+        return NSColorPanel.shared()
     }
 
-    var sharedApplication: NSApplication {
-        return NSApplication.sharedApplication()
+    internal var sharedApplication: NSApplication {
+        return NSApplication.shared()
     }
 
-    var userDefaults: NSUserDefaults {
-        return NSUserDefaults.standardUserDefaults()
+    internal var userDefaults: UserDefaults {
+        return UserDefaults.standard
     }
 
-    var userDefaultsController: NSUserDefaultsController {
-        return NSUserDefaultsController.sharedUserDefaultsController()
+    internal var userDefaultsController: NSUserDefaultsController {
+        return NSUserDefaultsController.shared()
     }
 
-    override func awakeFromNib() {
+    internal override func awakeFromNib() {
         super.awakeFromNib()
 
         self.colorPanel.delegate = self
-        self.colorPanel.floatingPanel = self.userDefaults.boolForKey("floatingPanel")
+        self.colorPanel.isFloatingPanel = self.userDefaults.bool(forKey: "floatingPanel")
         self.colorPanel.hidesOnDeactivate = false
         self.colorPanel.showsAlpha = true
         self.colorPanel.title = "Color Panel"
 
         self.colorPanel.makeKeyAndOrderFront(nil)
-        self.colorPanel.bind("floatingPanel", toObject: self.userDefaultsController, withKeyPath: "values.floatingPanel", options: nil)
     }
 
-    func windowWillClose(notification: NSNotification) {
+    internal func windowWillClose(_ notification: Notification) {
         self.sharedApplication.terminate(nil)
     }
 }
